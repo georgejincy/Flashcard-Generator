@@ -5,14 +5,16 @@ var ClozeCard = function(text, cloze){
 		return console.log("Error!." + cloze + " doesn't appear in text " + text);
 	}
 	if(this instanceof ClozeCard){
-		this.text = text;
+		this.fullText = text;
 		this.cloze = cloze;
-		console.log("New cloze card created")
+		this.partial = this.fullText.replace(this.cloze, '...');
+		console.log("New cloze card created. Partial is" + this.partial);
 	}else{
 		return new ClozeCard(text, cloze);
 	}
 };
 
+
 //Testing and debugging
 var firstPresidentCloze = new ClozeCard(
-    "George Washington was the first president of the United States.", "hhhh");
+    "George Washington was the first president of the United States.", "George Washington");
