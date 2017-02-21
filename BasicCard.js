@@ -23,7 +23,7 @@ var BasicCard = function(front, back){
 
 module.exports = BasicCard;
 
-//Read bsic.json and get the quizObject
+//Read basic.json and get the quizObject
 fs.readFile('basic.json', 'utf8', function(err, data){
 	if(err) {
         return console.log(err);
@@ -34,7 +34,7 @@ fs.readFile('basic.json', 'utf8', function(err, data){
 
     console.log(quizBasicObj.ques.length);
 
-    // call askQuestion to playgame
+    // call askQuestion to playgame if Read file is success
 	askQuestion();
 });
 
@@ -49,6 +49,13 @@ var askQuestion = function(){
 		 }
 		]).then(function (answers) {
 		 console.log(answers.userAns);
+		 //validate userAnswer
+		 if(answers.userAns.toLowerCase() === quizBasicObj.ques[count].back.toLowerCase()){
+		 	console.log("You are correct!. \n" + "The correct answer is " + quizBasicObj.ques[count].back);
+		 	score++;
+		 }else{
+		 	console.log("Incorrect!. \n" + "The correct answer is " + quizBasicObj.ques[count].back);
+		 }
 		 // add one to count to increment our recursive loop by one
       	  count++;
 	      // run the askquestion function again so as to either end the loop or ask the questions again
@@ -73,6 +80,8 @@ var askQuestion = function(){
 	  			count = 0;
 	  			score = 0;
 	  			askQuestion();
+  			}else{ 
+  				console.log("See you later!");
   			}
 		});
 	}
