@@ -1,3 +1,4 @@
+var fs = require('fs');
 var BasicCard = require("./BasicCard");
 var ClozeCard = require("./ClozeCard");
 var basicQuizObj = {
@@ -22,16 +23,31 @@ clozeQuizObj.ques.push(new ClozeCard("After Alaska, Florida is the next US state
 
 console.log(JSON.stringify(clozeQuizObj));
 
+//Write basicquizObj to basic.json file and clozequizObject to cloze.json file
+fs.writeFile('basic.json', JSON.stringify(basicQuizObj,null,4), function(err){
+	if(err) {
+        return console.log(err);
+    }
+
+    console.log("The basic file was saved!");
+});
+
+fs.writeFile('cloze.json', JSON.stringify(clozeQuizObj,null,4), function(err){
+	 if(err) {
+        return console.log(err);
+    }
+
+    console.log("The cloze file was saved!");
+});
+
+//read the json file
+fs.readFile('basic.json', 'utf8', function(err, data){
+	if(err) {
+        return console.log(err);
+    }
+    console.log(data);
+});
 
 
 
-//Testing and debugging
-/*var firstPresidentBasic = new BasicCard(" Who was the first president of the United States?", "George Washington");
-console.log(firstPresidentBasic.front);
-console.log(firstPresidentBasic.back);
 
-var firstPresidentCloze = new ClozeCard(
-    "George Washington was the first president of the United States.", "George Washington");
-console.log(firstPresidentCloze.partial);
-console.log(firstPresidentCloze.cloze);
-console.log(firstPresidentCloze.fullText);*/

@@ -8,7 +8,7 @@ var ClozeCard = function(text, cloze){
 		this.fullText = text;
 		this.cloze = cloze;
 		this.partial = this.fullText.replace(this.cloze, '...');
-		console.log("New cloze card created. Partial is" + this.partial);
+		//console.log("New cloze card created. Partial is" + this.partial);
 	}else{
 		return new ClozeCard(text, cloze);
 	}
