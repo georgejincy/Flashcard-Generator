@@ -14,7 +14,6 @@ var ClozeCard = function(text, cloze){
 	}
 };
 
+module.exports = ClozeCard;
 
-//Testing and debugging
-var firstPresidentCloze = new ClozeCard(
-    "George Washington was the first president of the United States.", "George Washington");
+

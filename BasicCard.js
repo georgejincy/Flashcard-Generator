@@ -9,3 +9,5 @@ var BasicCard = function(front, back){
 	}
 	
 };
+
+module.exports = BasicCard;
