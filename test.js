@@ -24,7 +24,7 @@ clozeQuizObj.ques.push(new ClozeCard("After Alaska, Florida is the next US state
 console.log(JSON.stringify(clozeQuizObj));
 
 //Write basicquizObj to basic.json file and clozequizObject to cloze.json file
-fs.writeFile('basic.json', JSON.stringify(basicQuizObj,null,4), function(err){
+fs.writeFile('basic.json', JSON.stringify(basicQuizObj), function(err){
 	if(err) {
         return console.log(err);
     }
@@ -32,7 +32,7 @@ fs.writeFile('basic.json', JSON.stringify(basicQuizObj,null,4), function(err){
     console.log("The basic file was saved!");
 });
 
-fs.writeFile('cloze.json', JSON.stringify(clozeQuizObj,null,4), function(err){
+fs.writeFile('cloze.json', JSON.stringify(clozeQuizObj), function(err){
 	 if(err) {
         return console.log(err);
     }
@@ -48,6 +48,12 @@ fs.readFile('basic.json', 'utf8', function(err, data){
     console.log(data);
 });
 
+fs.readFile('cloze.json', 'utf8', function(err, data){
+	if(err) {
+        return console.log(err);
+    }
+    console.log(data);
+});
 
 
 

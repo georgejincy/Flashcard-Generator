@@ -1,3 +1,6 @@
+// dependency for inquirer npm package
+var inquirer = require("inquirer");
+
 //ClozeCard constructor
 var ClozeCard = function(text, cloze){
 	//Proceed with Cloze card creation only if cloze deletion appears in text

@@ -1,3 +1,6 @@
+// dependency for inquirer npm package
+var inquirer = require("inquirer");
+
 //BasicCard constructor
 var BasicCard = function(front, back){
 	//Scope safe constructors
