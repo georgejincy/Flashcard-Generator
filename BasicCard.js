@@ -1,6 +1,6 @@
 // dependency for inquirer npm package
 var inquirer = require("inquirer");
-// dependency for inquirer fs
+// dependency for fs
 var fs = require('fs');
 var quizBasicObj;
 //variable to store score details
